@@ -35,19 +35,32 @@ def abajo(n,h):
 def imprimir(opciones):
     for k,v in opciones.items():
         print(v,k)
-            
 
-opciones = {"izquierda":1,"derecha":2,"arriba":3,"abajo":4}
-h = 4
-seguir = "si"
+if __name__ == "__main__":
 
-while(seguir == "si"):
-    imprimir(opciones)
-    opcion = str(input("Ingrese la direccion a imprimir "))
-    h = int(input("Ingrese la altura de la piramide "))
-    n = opciones[opcion]
-    derecha(n,h)
-    izquierda(n,h)
-    arriba(n,h)
-    abajo(n,h)
-    seguir = str(input("Desea Seguir? "))
+    opciones = {"izquierda":1,"derecha":2,"arriba":3,"abajo":4}
+    h = 4
+    seguir = "si"
+
+    while(seguir == "si"):
+        imprimir(opciones)
+        opcion = str(input("Ingrese la direccion a imprimir "))
+        while(True):
+            if(opcion not in opciones):
+                print("La opcion no esta disponible")
+                opcion = str(input("Ingrese la direccion a imprimir "))
+            else:
+                break
+        h = int(input("Ingrese la altura de la piramide "))    
+        while(True):
+            if(h < 10 and h > 0):
+                break
+            else:               
+                print("La opcion no esta disponible")
+                h = int(input("Ingrese la altura de la piramide "))
+        n = opciones[opcion]
+        derecha(n,h)
+        izquierda(n,h)
+        arriba(n,h)
+        abajo(n,h)
+        seguir = str(input("Desea Seguir? "))
