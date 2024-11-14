@@ -18,7 +18,7 @@ def imprimir(s,t,n,nom,ps):
     global tipos
     global precios
     if (s == sabores[3]):
-        print(f"Tarta de {s} {t}: {precios[s]} €")
+        print(f"Tarta de {s} {t}: {precios[s]+precios[t]} €")
     else:
         print(f"Tarta de {s}: {precios[s]} €")
     if (n == "si"):print("Con nata: 2,50 €")
@@ -28,7 +28,7 @@ def imprimir(s,t,n,nom,ps):
 
 if __name__ == "__main__":
     sabores= {1:"manzana",2:"fresa",3:"chocolate"} 
-    precios= {"manzana":18.00,"fresa":16.00,"chocolate":14.00} 
+    precios= {"manzana":18.00,"fresa":16.00,"chocolate":14.00,"blanco":1,"negro":0} 
     tipos = {1:"blanco",2:"negro"}
     start = "s"
     while(start == "s"):
