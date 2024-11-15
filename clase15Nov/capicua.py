@@ -2,7 +2,7 @@
 def capicua(n:str):
     rev = ""
     for i in range(len(n)-1,-1,-1):
-        rev = rev + n[i]
+        rev = rev + n[i:i+1]
 
     return rev == n
 def iscapicua(n:int):
