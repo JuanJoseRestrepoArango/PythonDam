@@ -11,6 +11,7 @@ m = fecha.month
 n = fecha.weekday()
 inc = timedelta(days=1)
 cadena =  "   "*n
+print("L  M  M  J  V  S  D  ")
 while(fecha.month == m):
     n = fecha.day    
     cadena  = cadena+f'{str(n):3}'
@@ -19,4 +20,6 @@ while(fecha.month == m):
         cadena = ""
     fecha = fecha+inc
 print(cadena)
-        
+fecha = fecha + timedelta(days = -1)
+print("EL ULTIMO DIA DEL MES ES:")
+print(fecha.strftime("%A %d de %B del %Y ").upper())
