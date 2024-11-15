@@ -1,11 +1,11 @@
 
-def capicua(n):
+def capicua(n:str):
     rev = ""
-    for i in range(len(num)-1,-1,-1):
-        rev = rev + num[i]
+    for i in range(len(n)-1,-1,-1):
+        rev = rev + n[i]
 
-    return rev == num
-def intCapicua(n):
+    return rev == n
+def iscapicua(n:int):
     rev= 0
     sobra = 0
     c = n
@@ -15,10 +15,16 @@ def intCapicua(n):
         rev = rev*10+sobra
     return rev == c
 
-num = input("Ingrese un numero ")
-if(intCapicua(int(num))):
-    print("Es capicua")
-else:
-    print("no es capicua")
+if __name__ == "__main__":
+    num = input("Ingrese un numero ")
+    if(capicua(num)):
+        print("Es capicua")
+    else:
+        print("no es capicua")
+    if(iscapicua(int(num))):
+        print("Es capicua")
+    else:
+        print("no es capicua")
+
 
 
