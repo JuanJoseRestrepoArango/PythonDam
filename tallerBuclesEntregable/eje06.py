@@ -2,8 +2,6 @@ import os
 def menu(): 
     os.system("cls")  
     global sabores
-    # for k,v in sabores.items():
-    #     print(k, v) 
     s = str (input(f"Elija un sabor ({sabores[1]}, {sabores[2]} o {sabores[3]}): "))
     return s
 
@@ -23,7 +21,7 @@ def imprimir(s,t,n,nom,ps):
         print(f"Tarta de {s}: {precios[s]} €")
     if (n == "si"):print("Con nata: 2,50 €")
     if (nom == "si"):print("Con nombre: 2,75 €")
-    print(f"Total: {ps}")
+    print(f"Total: {ps}€")
     
 
 if __name__ == "__main__":

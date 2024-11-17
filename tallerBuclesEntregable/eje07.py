@@ -28,7 +28,7 @@ def imprimir(s,t,b,ps):
     else:
         print(f"{s}: {precios[s]} €".capitalize())
     print(f"{b}: {precios[b]}".capitalize())
-    print(f"Total desayuno: {ps} €")
+    print(f"Total desayuno: {round(ps,2)} €")
     
 
 if __name__ == "__main__":

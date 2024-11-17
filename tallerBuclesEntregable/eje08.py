@@ -1,4 +1,5 @@
 import numpy as np
+import os
 nf = 4
 nc = 5
 sf = 0
@@ -7,6 +8,7 @@ t = 0
 a = np.zeros((nf,nc))
 for i in range(0,len(a),1):
     for j in range (0,len(a[i]),1):
+        os.system("cls")
         a[i][j] = input("ingrese un numero: ")
 
 for i in range(0,len(a),1):
