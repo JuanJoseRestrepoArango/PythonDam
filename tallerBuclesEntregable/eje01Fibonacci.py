@@ -1,4 +1,4 @@
-# Serie de Fibonacci
+
 n = int(input("Ingrese el numero de los terminos de la sucesion de fibonacci que quiere ver "))
 res = 0
 num  = [0,1]

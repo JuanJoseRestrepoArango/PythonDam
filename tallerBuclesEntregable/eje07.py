@@ -17,57 +17,49 @@ def bebida():
     global bebidas
     t = str (input(f"¿Qué ha tomado de beber? ({bebidas[1]} o {bebidas[2]}): "))
     return t
-def imprimir(s,t,n,nom,ps):
+def imprimir(s,t,b,ps):
     os.system("cls")  
     global sabores
     global tipos
+    global bebidas
     global precios
     if (s == sabores[3]):
-        print(f"Tarta de {s} {t}: {precios[s]+precios[t]} €")
+        print(f"{s} en {t}: {precios[s]+precios[t]} €".capitalize())
     else:
-        print(f"Tarta de {s}: {precios[s]} €")
-    if (n == "si"):print("Con nata: 2,50 €")
-    if (nom == "si"):print("Con nombre: 2,75 €")
-    print(f"Total: {ps}")
+        print(f"{s}: {precios[s]} €".capitalize())
+    print(f"{b}: {precios[b]}".capitalize())
+    print(f"Total desayuno: {round(ps,2)} €")
     
 
 if __name__ == "__main__":
-    sabores= {1:"palmera",2:"fresa",3:"chocolate"} 
-    bebidas= {1:"zumo",2:"café"} 
-    precios= {"manzana":1.40,"donut":1.00,"pitufo":1.20,"tortilla":0.40,"aceite":0,"zumo":1.50, "cafe" :1.20} 
+    sabores= {1:"palmera",2:"donut",3:"pitufo"} 
+    bebidas= {1:"zumo",2:"cafe"} 
+    precios= {"palmera":1.40,"donut":1.00,"pitufo":1.20,"tortilla":0.40,"aceite":0,"zumo":1.50, "cafe" :1.20} 
     tipos = {1:"aceite",2:"tortilla"}
     start = "s"
     while(start == "s"):
-        s = menu()
+        while(True):
+            s = menu()
+            if(s in sabores.values()):
+                break
+            else:
+                print("Debe seleccionar un producto de la lista")
         ps = precios[s]
         if(s == sabores[3]):
-            t = tipo()
+            while(True):
+                t = tipo()
+                if t in tipos.values() :break
             if(t == tipos[1]):ps = precios[s]+1
         else:
             t = ""
         
-         
-        while(True):
-            n  = input("¿Quiere nata? (si o no): ")
-            if (n == "si"): 
-                ps = ps +2.50
-                break
-            elif (n == "no"):
-                break
-            else:
-                print("Respuesta no valida")
-        while(True):
-            nom = input("¿Quiere ponerle un nombre? (si o no): ")
-            if (nom == "si"): 
-                ps = ps +2.75
-                break
-            elif (nom == "no"):
-                break
-            else:
-                print("Respuesta no valida")
+        while(True): 
+            b = bebida()
+            if b in bebidas.values():break
+        ps = ps +precios[b]
+            
 
-
-        imprimir(s,t,n,nom,ps)
+        imprimir(s,t,b,ps)
         while(True):
             start = str(input("¿Quiere Continuar? (s/n): "))
             if(start != "s" and start != "n"):
