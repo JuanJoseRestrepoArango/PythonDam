@@ -40,6 +40,7 @@ def imprimirMov (m):
 def tirar(m,jug):
     while True:
         pos = int(input("Dime la posicion "))
+        if not(pos>=1 and pos<=len(m)*len(m)):continue
         nc = (pos-1)%len(m)
         nf = (pos-1)//len(m)
         if(m[nf][nc] == "-"):
@@ -70,6 +71,7 @@ def menu(mov,n,jug):
     os.system("cls")
     opciones = {1:"Ver Posiciones", 2:"Ver Movimientos", 3:"Tirar", 4:"Salir"}
     while(True):
+        print("Juega 1" if (jug) else "Juega 2")
         for v,k in opciones.items():
             print(v,k)  
         opcion = int(input("Ingrese el numero de la opcion: "))
@@ -100,11 +102,9 @@ if __name__ == "__main__":
     rellenarSolucion(sol)
     rellenarMov(mov)
     while True:
-        while True:
-            print("Juega 1" if (jug) else "Juega 2")
-            menu(mov,n,jug)
-            break
-        
+          
+        menu(mov,n,jug)
+
         if (jug):
             j1+=1 
         else:
