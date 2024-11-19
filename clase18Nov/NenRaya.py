@@ -83,9 +83,11 @@ def menu(mov,n,jug):
             tirar(mov,jug)
             break
         elif(opcion == 4):
+            return True
             break
         else:
             print("Debe seleccionar una opcion valida")
+    return False
         
     
     
@@ -103,8 +105,8 @@ if __name__ == "__main__":
     rellenarMov(mov)
     while True:
           
-        menu(mov,n,jug)
-
+        s = menu(mov,n,jug)
+        if(s):break
         if (jug):
             j1+=1 
         else:
