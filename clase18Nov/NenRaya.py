@@ -1,4 +1,5 @@
 import numpy as np
+import os
 
 def rellenarSolucion(m):
     nf = len(m)
@@ -38,7 +39,7 @@ def imprimirMov (m):
 
 def tirar(m,jug):
     while True:
-        pos = int(input("Dime la posicion"))
+        pos = int(input("Dime la posicion "))
         nc = (pos-1)%len(m)
         nf = (pos-1)//len(m)
         if(m[nf][nc] == "-"):
@@ -65,6 +66,29 @@ def comprobar(jug,mov,sol):
             return True
     return False
 
+def menu(mov,n,jug):
+    os.system("cls")
+    opciones = {1:"Ver Posiciones", 2:"Ver Movimientos", 3:"Tirar", 4:"Salir"}
+    while(True):
+        for v,k in opciones.items():
+            print(v,k)  
+        opcion = int(input("Ingrese el numero de la opcion: "))
+        if(opcion == 1):
+            tablero(n)
+        elif(opcion == 2):
+            imprimirMov(mov)
+        elif(opcion == 3):
+            tirar(mov,jug)
+            break
+        elif(opcion == 4):
+            break
+        else:
+            print("Debe seleccionar una opcion valida")
+        
+    
+    
+
+
 if __name__ == "__main__":
     jug = True
     n = int(input("Dime el nº de filas /columnas "))
@@ -78,17 +102,17 @@ if __name__ == "__main__":
     while True:
         while True:
             print("Juega 1" if (jug) else "Juega 2")
+            menu(mov,n,jug)
             break
-        tablero(n)
-        tirar(mov,jug)
-        imprimirMov(mov)
+        
         if (jug):
             j1+=1 
         else:
             j2+=1
         if(j1>=n or j2>=n):
             if(comprobar(jug,mov,sol)):
-                print("Gano el jugador" + ("jugador 1" if (jug) else "jugador 2"))
+                print("Gano el " + ("jugador 1" if (jug) else "jugador 2"))
+                imprimirMov(mov)
                 break
         if(j1+j2 == n*n):
             print("Empate")
