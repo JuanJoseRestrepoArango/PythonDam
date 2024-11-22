@@ -114,8 +114,13 @@ if __name__ == "__main__":
             print("\nHa Ganado la combinacion secreta es:")
             imprimir(combSec)
             break
+        elif(turnos == 20):
+            print("\nHas perdido la combinacion es:")
+            imprimir(combSec)
+            break
         else:
             contV = 0
+        
 
         turnos +=1
         print(f"\nEsta en el turno {turnos}")
